@@ -13,6 +13,7 @@
 		1457AA3A2A13DADA006E2381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1457AA382A13DADA006E2381 /* Main.storyboard */; };
 		1457AA3C2A13DADE006E2381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1457AA3B2A13DADE006E2381 /* Assets.xcassets */; };
 		1457AA3F2A13DADE006E2381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1457AA3D2A13DADE006E2381 /* LaunchScreen.storyboard */; };
+		DF328749AC762D7438D07B18 /* Pods_RedditTheGrint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42819D449AE45208FB1BD18C /* Pods_RedditTheGrint.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,12 @@
 		1457AA3B2A13DADE006E2381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1457AA3E2A13DADE006E2381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1457AA402A13DADE006E2381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1457AA462A13DB0D006E2381 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1457AA472A13DC24006E2381 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1457AA482A13DD66006E2381 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		42819D449AE45208FB1BD18C /* Pods_RedditTheGrint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditTheGrint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57C036A5DA46A5A2FF97D2F0 /* Pods-RedditTheGrint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditTheGrint.debug.xcconfig"; path = "Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint.debug.xcconfig"; sourceTree = "<group>"; };
+		A9E9DA06C32FB74D61EA02A0 /* Pods-RedditTheGrint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditTheGrint.release.xcconfig"; path = "Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF328749AC762D7438D07B18 /* Pods_RedditTheGrint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +48,12 @@
 		1457AA262A13DADA006E2381 = {
 			isa = PBXGroup;
 			children = (
+				1457AA472A13DC24006E2381 /* LICENSE */,
+				1457AA462A13DB0D006E2381 /* README.md */,
 				1457AA312A13DADA006E2381 /* RedditTheGrint */,
 				1457AA302A13DADA006E2381 /* Products */,
+				22AD6783938B6D94C50B26CB /* Pods */,
+				8311DB40BE702E307906A9D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +75,27 @@
 				1457AA3B2A13DADE006E2381 /* Assets.xcassets */,
 				1457AA3D2A13DADE006E2381 /* LaunchScreen.storyboard */,
 				1457AA402A13DADE006E2381 /* Info.plist */,
+				1457AA482A13DD66006E2381 /* Podfile */,
 			);
 			path = RedditTheGrint;
+			sourceTree = "<group>";
+		};
+		22AD6783938B6D94C50B26CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57C036A5DA46A5A2FF97D2F0 /* Pods-RedditTheGrint.debug.xcconfig */,
+				A9E9DA06C32FB74D61EA02A0 /* Pods-RedditTheGrint.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8311DB40BE702E307906A9D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42819D449AE45208FB1BD18C /* Pods_RedditTheGrint.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1457AA432A13DADE006E2381 /* Build configuration list for PBXNativeTarget "RedditTheGrint" */;
 			buildPhases = (
+				225036B0C1630C12A66E0D3C /* [CP] Check Pods Manifest.lock */,
 				1457AA2B2A13DADA006E2381 /* Sources */,
 				1457AA2C2A13DADA006E2381 /* Frameworks */,
 				1457AA2D2A13DADA006E2381 /* Resources */,
+				0076503F45CBE4EB1298FEA1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +165,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0076503F45CBE4EB1298FEA1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		225036B0C1630C12A66E0D3C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RedditTheGrint-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1457AA2B2A13DADA006E2381 /* Sources */ = {
@@ -282,6 +357,7 @@
 		};
 		1457AA442A13DADE006E2381 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C036A5DA46A5A2FF97D2F0 /* Pods-RedditTheGrint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -289,6 +365,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedditTheGrint/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -298,7 +375,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.arbridev.RedditTheGrint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -309,6 +386,7 @@
 		};
 		1457AA452A13DADE006E2381 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9E9DA06C32FB74D61EA02A0 /* Pods-RedditTheGrint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +394,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedditTheGrint/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,7 +404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.arbridev.RedditTheGrint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

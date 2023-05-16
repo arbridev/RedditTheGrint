@@ -1,0 +1,6 @@
+framework module Pods_RedditTheGrint {
+  umbrella header "Pods-RedditTheGrint-umbrella.h"
+
+  export *
+  module * { export * }
+}
