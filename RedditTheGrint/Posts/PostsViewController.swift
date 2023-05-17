@@ -9,6 +9,8 @@ import UIKit
 
 class PostsViewController: UITableViewController {
 
+    private var viewModel = ViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,12 +24,25 @@ class PostsViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
 
         setRefreshControl()
+        viewModel.update = { [weak self] vm in
+            self?.updateUI()
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.fetchPosts()
     }
 
     @objc func refreshing() {
         print(#function)
         tableView.refreshControl = nil
         setRefreshControl()
+    }
+
+    private func updateUI() {
+        print(viewModel.posts)
+        tableView.reloadData()
     }
 
     private func setRefreshControl() {
@@ -39,19 +54,17 @@ class PostsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
+        return viewModel.posts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostViewCell.self)", for: indexPath)
-
-        // Configure the cell...
+        let post = viewModel.posts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostViewCell.self)", for: indexPath) as! PostViewCell
+        cell.config(post)
 
         return cell
     }

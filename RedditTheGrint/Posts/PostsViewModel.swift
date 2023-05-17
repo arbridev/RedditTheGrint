@@ -9,8 +9,22 @@ import Foundation
 
 extension PostsViewController {
 
-    struct PostsViewModel {
-        var update: (PostsViewModel) -> Void
+    class ViewModel {
+        let webService: RedditAPIService = WebService()
+        var update: ((ViewModel) -> Void)?
+        var posts = [Post]()
+
+        func fetchPosts() {
+            webService.fetchPosts { response in
+                guard let response else {
+                    self.posts = [Post]()
+                    self.update?(self)
+                    return
+                }
+                self.posts = response.data.children
+                self.update?(self)
+            }
+        }
     }
 
 }
