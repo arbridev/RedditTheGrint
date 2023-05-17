@@ -16,7 +16,8 @@ class PostViewCell: UITableViewCell {
     @IBOutlet weak private var postAuthorAndDate: UILabel!
     @IBOutlet weak private var postTitle: UILabel!
     @IBOutlet weak private var postComments: UILabel!
-
+    @IBOutlet weak private var imageHeightConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         coreContentView.layer.cornerRadius = 10.0
@@ -31,11 +32,23 @@ class PostViewCell: UITableViewCell {
 
     func config(_ post: Post) {
         let data = post.data
+        let formatedDate = formatDate(data.created)
+        imageHeightConstraint.constant = 120
+        if !data.thumbnail.isValidURL {
+            imageHeightConstraint.constant = 0
+        }
         postImage.sd_setImage(with: URL(string: data.thumbnail), placeholderImage: UIImage(systemName: "photo.artframe"))
         postSubreddit.text = data.subredditNamePrefixed
-        postAuthorAndDate.text = "Postd by \(data.author) on \(data.created)"
+        postAuthorAndDate.text = "Postd by \(data.author) on \(formatedDate)"
         postTitle.text = data.title
         postComments.text = "\(data.numComments)"
+    }
+
+    private func formatDate(_ intDate: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(intDate))
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        return formatter.string(from: date)
     }
 
 }

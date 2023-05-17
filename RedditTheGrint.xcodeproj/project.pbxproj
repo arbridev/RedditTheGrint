@@ -17,6 +17,7 @@
 		1457AA4F2A13E77B006E2381 /* PostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457AA4E2A13E77B006E2381 /* PostViewCell.swift */; };
 		1457AA522A152A0D006E2381 /* PostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457AA512A152A0D006E2381 /* PostsResponse.swift */; };
 		1457AA552A152BD7006E2381 /* RedditAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457AA542A152BD7006E2381 /* RedditAPIService.swift */; };
+		1457AA592A1581A8006E2381 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1457AA582A1581A8006E2381 /* String+Validation.swift */; };
 		DF328749AC762D7438D07B18 /* Pods_RedditTheGrint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42819D449AE45208FB1BD18C /* Pods_RedditTheGrint.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		1457AA4E2A13E77B006E2381 /* PostViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewCell.swift; sourceTree = "<group>"; };
 		1457AA512A152A0D006E2381 /* PostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponse.swift; sourceTree = "<group>"; };
 		1457AA542A152BD7006E2381 /* RedditAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAPIService.swift; sourceTree = "<group>"; };
+		1457AA582A1581A8006E2381 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		42819D449AE45208FB1BD18C /* Pods_RedditTheGrint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RedditTheGrint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C036A5DA46A5A2FF97D2F0 /* Pods-RedditTheGrint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditTheGrint.debug.xcconfig"; path = "Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint.debug.xcconfig"; sourceTree = "<group>"; };
 		A9E9DA06C32FB74D61EA02A0 /* Pods-RedditTheGrint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedditTheGrint.release.xcconfig"; path = "Target Support Files/Pods-RedditTheGrint/Pods-RedditTheGrint.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,14 +78,13 @@
 		1457AA312A13DADA006E2381 /* RedditTheGrint */ = {
 			isa = PBXGroup;
 			children = (
-				1457AA532A152B22006E2381 /* Services */,
+				1457AA5B2A1584B7006E2381 /* View */,
 				1457AA502A1529FA006E2381 /* Model */,
-				1457AA492A13E0AE006E2381 /* Posts */,
+				1457AA5A2A158498006E2381 /* Features */,
+				1457AA532A152B22006E2381 /* Services */,
+				1457AA562A15818C006E2381 /* Shared */,
 				1457AA322A13DADA006E2381 /* AppDelegate.swift */,
 				1457AA342A13DADA006E2381 /* SceneDelegate.swift */,
-				1457AA382A13DADA006E2381 /* Main.storyboard */,
-				1457AA3B2A13DADE006E2381 /* Assets.xcassets */,
-				1457AA3D2A13DADE006E2381 /* LaunchScreen.storyboard */,
 				1457AA402A13DADE006E2381 /* Info.plist */,
 				1457AA482A13DD66006E2381 /* Podfile */,
 			);
@@ -114,6 +115,40 @@
 				1457AA542A152BD7006E2381 /* RedditAPIService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1457AA562A15818C006E2381 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1457AA3B2A13DADE006E2381 /* Assets.xcassets */,
+				1457AA572A158193006E2381 /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		1457AA572A158193006E2381 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1457AA582A1581A8006E2381 /* String+Validation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1457AA5A2A158498006E2381 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1457AA492A13E0AE006E2381 /* Posts */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1457AA5B2A1584B7006E2381 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1457AA382A13DADA006E2381 /* Main.storyboard */,
+				1457AA3D2A13DADE006E2381 /* LaunchScreen.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		22AD6783938B6D94C50B26CB /* Pods */ = {
@@ -255,6 +290,7 @@
 				1457AA332A13DADA006E2381 /* AppDelegate.swift in Sources */,
 				1457AA552A152BD7006E2381 /* RedditAPIService.swift in Sources */,
 				1457AA352A13DADA006E2381 /* SceneDelegate.swift in Sources */,
+				1457AA592A1581A8006E2381 /* String+Validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
