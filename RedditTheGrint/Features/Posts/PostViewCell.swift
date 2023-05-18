@@ -10,6 +10,8 @@ import SDWebImage
 
 class PostViewCell: UITableViewCell {
 
+    // MARK: Properties
+
     @IBOutlet weak private var coreContentView: UIView!
     @IBOutlet weak var postImage: UIImageView!
     @IBOutlet weak var postSubreddit: UILabel!
@@ -17,6 +19,8 @@ class PostViewCell: UITableViewCell {
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postComments: UILabel!
     @IBOutlet weak private var imageHeightConstraint: NSLayoutConstraint!
+
+    // MARK: Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +51,8 @@ class PostViewCell: UITableViewCell {
             }
         }
     }
+
+    // MARK: Behavior
 
     func config(_ post: Post) {
         let data = post.data

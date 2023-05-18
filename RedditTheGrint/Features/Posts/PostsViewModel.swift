@@ -9,12 +9,19 @@ import Foundation
 
 extension PostsViewController {
 
+    // MARK: - View model
+
     class ViewModel {
+        
+        // MARK: Properties
+
         let webService: RedditAPIService = WebService()
         var persistence: PersistenceService = Persistence()
         var update: ((ViewModel) -> Void)?
         var posts = [Post]()
         var after: String?
+
+        // MARK: Behavior
 
         func fetchPosts() {
             webService.fetchPosts(after: after) { response in

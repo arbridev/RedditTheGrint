@@ -9,7 +9,11 @@ import UIKit
 
 class PostsViewController: UITableViewController {
 
+    // MARK: Properties
+
     private var viewModel = ViewModel()
+
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,8 @@ class PostsViewController: UITableViewController {
             viewModel.fetchPosts()
         }
     }
+
+    // MARK: Behavior
 
     @objc func refreshing() {
         tableView.refreshControl = nil

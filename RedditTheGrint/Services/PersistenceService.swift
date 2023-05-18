@@ -7,10 +7,14 @@
 
 import Foundation
 
+// MARK: - Persistence service
+
 protocol PersistenceService {
     var after: String? { get set }
     var posts: [Post]? { get set }
 }
+
+// MARK: - Persistence
 
 class Persistence: PersistenceService {
 

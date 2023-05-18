@@ -8,9 +8,13 @@
 import Foundation
 import Alamofire
 
+// MARK: - Reddit API service protocol
+
 protocol RedditAPIService {
     func fetchPosts(after: String?, _ completion: @escaping (PostsResponse?) -> Void)
 }
+
+// MARK: - Web request service
 
 class WebService: RedditAPIService {
 

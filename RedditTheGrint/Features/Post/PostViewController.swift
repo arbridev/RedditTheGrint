@@ -10,9 +10,13 @@ import WebKit
 
 class PostViewController: UIViewController {
 
+    // MARK: Properties
+
     var stringURL: String!
     private var webView: WKWebView!
     private var refreshControl: UIRefreshControl?
+
+    // MARK: Lifecycle
 
     override func loadView() {
         webView = WKWebView()
@@ -40,6 +44,8 @@ class PostViewController: UIViewController {
     }
 
 }
+
+// MARK: - Web kit navigation delegate
 
 extension PostViewController: WKNavigationDelegate {
 
