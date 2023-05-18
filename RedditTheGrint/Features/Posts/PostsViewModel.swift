@@ -13,15 +13,18 @@ extension PostsViewController {
         let webService: RedditAPIService = WebService()
         var update: ((ViewModel) -> Void)?
         var posts = [Post]()
+        var after: String?
 
         func fetchPosts() {
-            webService.fetchPosts { response in
+            webService.fetchPosts(after: after) { response in
                 guard let response else {
-                    self.posts = [Post]()
                     self.update?(self)
                     return
                 }
-                self.posts = response.data.children
+                self.after = response.data.after
+                var temp = response.data.children
+                temp.append(contentsOf: self.posts)
+                self.posts = temp
                 self.update?(self)
             }
         }

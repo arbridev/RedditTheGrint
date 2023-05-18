@@ -29,9 +29,9 @@ class PostsViewController: UITableViewController {
     }
 
     @objc func refreshing() {
-        print(#function)
         tableView.refreshControl = nil
         setRefreshControl()
+        viewModel.fetchPosts()
     }
 
     private func updateUI() {

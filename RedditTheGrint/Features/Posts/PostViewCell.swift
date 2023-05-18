@@ -50,14 +50,17 @@ class PostViewCell: UITableViewCell {
 
     func config(_ post: Post) {
         let data = post.data
+        let placeholderImage = UIImage(systemName: "photo.artframe")
+        placeholderImage?.withRenderingMode(.alwaysTemplate)
         let formatedDate = formatDate(data.created)
         imageHeightConstraint.constant = 120
         if !data.thumbnail.isValidURL {
             imageHeightConstraint.constant = 0
         }
-        postImage.sd_setImage(with: URL(string: data.thumbnail), placeholderImage: UIImage(systemName: "photo.artframe"))
+        postImage.tintColor = .systemOrange
+        postImage.sd_setImage(with: URL(string: data.thumbnail), placeholderImage: placeholderImage)
         postSubreddit.text = data.subredditNamePrefixed
-        postAuthorAndDate.text = "Postd by \(data.author) on \(formatedDate)"
+        postAuthorAndDate.text = "Posted by \(data.author) on \(formatedDate)"
         postTitle.text = data.title
         postComments.text = "\(data.numComments)"
     }

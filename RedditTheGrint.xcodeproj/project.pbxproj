@@ -139,8 +139,8 @@
 		1457AA5A2A158498006E2381 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				1457AA5C2A15921B006E2381 /* Post */,
 				1457AA492A13E0AE006E2381 /* Posts */,
+				1457AA5C2A15921B006E2381 /* Post */,
 			);
 			path = Features;
 			sourceTree = "<group>";

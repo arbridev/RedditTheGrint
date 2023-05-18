@@ -9,15 +9,21 @@ import Foundation
 import Alamofire
 
 protocol RedditAPIService {
-    func fetchPosts(_ completion: @escaping (PostsResponse?) -> Void)
+    func fetchPosts(after: String?, _ completion: @escaping (PostsResponse?) -> Void)
 }
 
 class WebService: RedditAPIService {
 
-    func fetchPosts(_ completion: @escaping (PostsResponse?) -> Void) {
+    func fetchPosts(after: String? = nil, _ completion: @escaping (PostsResponse?) -> Void) {
+        struct Parameters: Encodable {
+            let after: String?
+        }
+        let parameters = Parameters(after: after)
         AF.request(
             "https://www.reddit.com/r/all/top/.json",
             method: .get,
+            parameters: parameters,
+            encoder: URLEncodedFormParameterEncoder(destination: .queryString),
             headers: nil,
             interceptor: nil,
             requestModifier: nil
