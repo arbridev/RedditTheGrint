@@ -20,6 +20,7 @@ class PostViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         coreContentView.layer.cornerRadius = 10.0
         postImage.layer.masksToBounds = true
         postImage.layer.cornerRadius = 10.0
@@ -27,7 +28,24 @@ class PostViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-
+        if selected {
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.0,
+                usingSpringWithDamping: 0.5,
+                initialSpringVelocity: 0.2
+            ) { [weak self] in
+                self?.coreContentView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
+                UIView.animate(
+                    withDuration: 0.5,
+                    delay: 0.0,
+                    usingSpringWithDamping: 0.8,
+                    initialSpringVelocity: 0.2
+                ) { [weak self] in
+                    self?.coreContentView.transform = CGAffineTransform.identity.scaledBy(x: 1, y: 1)
+                }
+            }
+        }
     }
 
     func config(_ post: Post) {
