@@ -25,7 +25,12 @@ class PostsViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        viewModel.fetchPosts()
+        if viewModel.restoreState() {
+            updateUI()
+        } else {
+            viewModel.fetchPosts()
+        }
+
     }
 
     @objc func refreshing() {

@@ -11,6 +11,7 @@ extension PostsViewController {
 
     class ViewModel {
         let webService: RedditAPIService = WebService()
+        var persistence: PersistenceService = Persistence()
         var update: ((ViewModel) -> Void)?
         var posts = [Post]()
         var after: String?
@@ -26,7 +27,20 @@ extension PostsViewController {
                 temp.append(contentsOf: self.posts)
                 self.posts = temp
                 self.update?(self)
+                self.persistence.after = self.after
+                self.persistence.posts = self.posts
             }
+        }
+
+        func restoreState() -> Bool {
+            guard let after = persistence.after,
+               let posts = persistence.posts
+            else {
+                return false
+            }
+            self.after = after
+            self.posts = posts
+            return true
         }
     }
 
