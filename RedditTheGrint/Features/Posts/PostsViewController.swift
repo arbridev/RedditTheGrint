@@ -14,6 +14,9 @@ class PostsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+
         tableView.estimatedRowHeight = 300.0
         tableView.rowHeight = UITableView.automaticDimension
 
@@ -30,13 +33,16 @@ class PostsViewController: UITableViewController {
         } else {
             viewModel.fetchPosts()
         }
-
     }
 
     @objc func refreshing() {
         tableView.refreshControl = nil
         setRefreshControl()
         viewModel.fetchPosts()
+    }
+
+    @objc func orientationChanged() {
+        updateUI()
     }
 
     private func updateUI() {
@@ -61,9 +67,19 @@ class PostsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = viewModel.posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostViewCell.self)", for: indexPath) as! PostViewCell
-        cell.config(post)
-        return cell
+
+        if UIDevice.current.orientation == .portrait ||
+            UIDevice.current.orientation == .portraitUpsideDown ||
+            UIDevice.current.orientation == .unknown
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostViewCell.self)", for: indexPath) as! PostViewCell
+            cell.config(post)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostLandscapeViewCell.self)", for: indexPath) as! PostLandscapeViewCell
+            cell.config(post)
+            return cell
+        }
     }
 
     // MARK: - Table view delegate

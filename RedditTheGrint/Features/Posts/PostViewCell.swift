@@ -11,11 +11,11 @@ import SDWebImage
 class PostViewCell: UITableViewCell {
 
     @IBOutlet weak private var coreContentView: UIView!
-    @IBOutlet weak private var postImage: UIImageView!
-    @IBOutlet weak private var postSubreddit: UILabel!
-    @IBOutlet weak private var postAuthorAndDate: UILabel!
-    @IBOutlet weak private var postTitle: UILabel!
-    @IBOutlet weak private var postComments: UILabel!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var postSubreddit: UILabel!
+    @IBOutlet weak var postAuthorAndDate: UILabel!
+    @IBOutlet weak var postTitle: UILabel!
+    @IBOutlet weak var postComments: UILabel!
     @IBOutlet weak private var imageHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
@@ -65,7 +65,7 @@ class PostViewCell: UITableViewCell {
         postComments.text = "\(data.numComments)"
     }
 
-    private func formatDate(_ intDate: Int) -> String {
+    func formatDate(_ intDate: Int) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(intDate))
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
